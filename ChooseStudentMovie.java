@@ -3,8 +3,8 @@ package lab9;
 import java.util.*;
 
 public class ChooseStudentMovie {
-	TreeMap<String, String[]> studentMovies = new TreeMap<String, String[]>();
-	RankedMov[] allMovies;
+	public TreeMap<String, String[]> studentMovies = new TreeMap<String, String[]>();
+	public RankedMov[] allMovies;
 	
 	public class RankedMov implements Comparable<RankedMov> {
 		public String name;
