@@ -88,6 +88,25 @@ public class ChooseStudentMovie {
 	}
 	
 	public static void main(String[] args) {
-		ChooseStudentMovie csm = new ChooseStudentMovie();
+		ChooseStudentMovie mov = new ChooseStudentMovie();
+		
+		String[] array1 = new String[3];
+		array1[0] = "Liban";
+		array1[1] = "Seth";
+		array1[2] = "Kyrin";
+		System.out.println("Expect: The Godfather, Forrest Gump, or Shutter Island    Result: " + mov.chooseMovie(array1));
+		
+		String[] array2 = new String[4];
+		array2[0] = "Thad";
+		array2[1] = "Abbas";
+		array2[2] = "Megan";
+		array2[3] = "Ahmad";
+		System.out.println("Expect: Fight Club, The Shining, A Separation, or M    Result: " + mov.chooseMovie(array2));
+		
+		String[] array3 = new String[2];
+		array3[0] = "Nikki";
+		array3[1] = "Jimmy";
+		System.out.println("Expect: Forrest Gump, The Shining, Braveheart, Inception, Jaws, " + 
+		"Gladiator, Scarface, Shutter Island, M, or The Terminator    Result: " + mov.chooseMovie(array3));
 	}
 }
