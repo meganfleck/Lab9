@@ -108,5 +108,15 @@ public class ChooseStudentMovie {
 		array3[1] = "Jimmy";
 		System.out.println("Expect: Forrest Gump, The Shining, Braveheart, Inception, Jaws, " + 
 		"Gladiator, Scarface, Shutter Island, M, or The Terminator    Result: " + mov.chooseMovie(array3));
+		
+		String[] array4 = new String[1];
+		array4[0] = "Benjamin";
+		System.out.println("Expect: Pulp Fiction, Fight Club, Scarface, A Separation, " + 
+		"or Full Metal Jacket    Result: " + mov.chooseMovie(array4));
+		
+		array4[0] = "Napoleon";
+		System.out.println("Expect: nothing, null output, etc.    Result: " + mov.chooseMovie(array4));
+		
+		System.out.println("Expect: nothing, null output, etc.    Result: " + mov.chooseMovie(null));
 	}
 }
