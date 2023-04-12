@@ -1,0 +1,23 @@
+You need to have a file, describing what data
+structures are used and justify the order of your algorithm. A part of your
+grade is dedicated to developing an efficient algorithm.
+
+
+
+Ahmad
+chooseMovie method
+Approach:
+The method accesses an array of strings that contains the student's names and once it uses the
+names as keys to find the array of RankedMov which is a class contianing objects of RankedMov
+that have two fields name of the movie and the rank. Then it increases the rank by 1 while 
+iterating through the movies of the students. At the end it returns the movie with the highest
+rank resets the rank of the movies to 0.
+
+Order:
+My method iterates over the students and increase the rank of the movies for each student by 1.
+Then it goes through again and finds the movie with the hghest rank while also reseting the rank
+back to 0. The order is about O(2*N) which simplified is just O(N).
+
+
+
+
