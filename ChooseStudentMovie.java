@@ -87,6 +87,11 @@ public class ChooseStudentMovie {
 		
 	}
 	
+	/**
+	 * Main method, used for testing.
+	 * Written by Seth Tedder.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		ChooseStudentMovie mov = new ChooseStudentMovie();
 		
