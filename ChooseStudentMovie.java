@@ -133,6 +133,11 @@ public class ChooseStudentMovie {
 	    return highestRankMovie.name;
 	}
 	
+	/**
+	 * Main method, used for testing.
+	 * Written by Seth Tedder.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		ChooseStudentMovie mov = new ChooseStudentMovie();
 		
@@ -141,7 +146,6 @@ public class ChooseStudentMovie {
 		array1[1] = "Seth";
 		array1[2] = "Kyrin";
 		System.out.println("Expect: The Godfather, Forrest Gump, or Shutter Island    Result: " + mov.chooseMovie(array1));
-		
 		
 		String[] array2 = new String[4];
 		array2[0] = "Thad";
@@ -156,5 +160,15 @@ public class ChooseStudentMovie {
 		System.out.println("Expect: Forrest Gump, The Shining, Braveheart, Inception, Jaws, " + 
 		"Gladiator, Scarface, Shutter Island, M, or The Terminator    Result: " + mov.chooseMovie(array3));
 		
+		String[] array4 = new String[1];
+		array4[0] = "Benjamin";
+		System.out.println("Expect: Pulp Fiction, Fight Club, Scarface, A Separation, " + 
+		"or Full Metal Jacket    Result: " + mov.chooseMovie(array4));
+		
+		array4[0] = "Napoleon";
+		System.out.println("Expect: nothing, null output, etc.    Result: " + mov.chooseMovie(array4));
+		
+		System.out.println("Expect: nothing, null output, etc.    Result: " + mov.chooseMovie(null));
+
 	}
 }
