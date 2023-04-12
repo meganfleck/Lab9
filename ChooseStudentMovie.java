@@ -1,14 +1,19 @@
-package lab9;
 
 import java.util.*;
 
 public class ChooseStudentMovie {
-	public TreeMap<String, String[]> studentMovies = new TreeMap<String, String[]>();
+	public TreeMap<String, RankedMov[]> studentMovies = new TreeMap<String, RankedMov[]>();
 	public RankedMov[] allMovies;
 	
 	public class RankedMov implements Comparable<RankedMov> {
 		public String name;
 		public int rank;
+		
+		//Default constructor
+		public RankedMov() {
+            this.name = "null";
+            rank = 0;
+        }
 		
 		public RankedMov(String name) {
 			this.name = name;
@@ -56,7 +61,7 @@ public class ChooseStudentMovie {
 				}else {
 					movies[i-1] = movieMap.get(result[i].substring(1));
 				}
-				movies[i-1].tick();//counts how many times each movie is seen
+				//movies[i-1].tick();//counts how many times each movie is seen
 			}
 			studentMovies.put(student, movies);
 		}
@@ -76,22 +81,58 @@ public class ChooseStudentMovie {
 				return o2.rank - o1.rank;
 			}	
     	});
+		/*
 		//testing for the count of each movie
 		for(int i = 0; i < allMovies.length; i++) {
 			System.out.println(allMovies[i].name + " occured " + allMovies[i].rank + " times.");
 		}
+		*/
 		
 	}
 	
+	//Ahmad
 	public String chooseMovie(String[] students) {
+		if(students.length == 0) {
+		    System.out.println("No students names in the array found.");
+		    return null;
+		}
 		
+		String name;
+		RankedMov[] Movies;
+		//For loop meant to go through each student and tick the movie
+		for(int i = 0; i < students.length; i++) {
+		    name = students[i];
+		    Movies = studentMovies.get(name);
+		    //goes through movie and ticks it.
+		    for(RankedMov singleMovie : Movies) {
+		        singleMovie.tick();
+		    }
+		}
+		
+		//For loop that sees which movie has the highest rank.
+		//Uses student names to iterate through studentMovies map.
+		//Also sets the rank back to 0 for each movie.
+		RankedMov highestRankMovie = new RankedMov();
+		for(int i = 0; i < students.length; i++) {
+		    name = students[i];
+		    Movies = studentMovies.get(name);
+		    
+            for(RankedMov singleMovie : Movies) {
+                if(singleMovie.rank > highestRankMovie.rank) {
+                    highestRankMovie.rank = singleMovie.rank;
+                    highestRankMovie.name = singleMovie.name;
+                    singleMovie.reset();
+                }
+                else {
+                    singleMovie.reset();
+                }
+            }
+		}
+		
+		
+	    return highestRankMovie.name;
 	}
 	
-	/**
-	 * Main method, used for testing.
-	 * Written by Seth Tedder.
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		ChooseStudentMovie mov = new ChooseStudentMovie();
 		
@@ -100,6 +141,7 @@ public class ChooseStudentMovie {
 		array1[1] = "Seth";
 		array1[2] = "Kyrin";
 		System.out.println("Expect: The Godfather, Forrest Gump, or Shutter Island    Result: " + mov.chooseMovie(array1));
+		
 		
 		String[] array2 = new String[4];
 		array2[0] = "Thad";
@@ -113,5 +155,6 @@ public class ChooseStudentMovie {
 		array3[1] = "Jimmy";
 		System.out.println("Expect: Forrest Gump, The Shining, Braveheart, Inception, Jaws, " + 
 		"Gladiator, Scarface, Shutter Island, M, or The Terminator    Result: " + mov.chooseMovie(array3));
+		
 	}
 }
